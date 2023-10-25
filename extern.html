@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Min Webbplats</title>
+</head>
+<body>
+    <header>
+        <h1>Välkommen till vår webbplats</h1>
+        <p>För att använda vår webbplats måste du godkänna vår integritetspolicy:</p>
+        <label for="privacy-policy-checkbox">
+            <input type="checkbox" id="privacy-policy-checkbox"> Jag godkänner integritetspolicyn
+        </label>
+    </header>
+
+    <div id="form-section" style="display: none;">
+        <form>
+            <input type="radio" id="ny-kund" name="jag-ar" value="ny">
+            <label for="ny-kund">Ny kund</label>
+            <br>
+            <input type="radio" id="befintlig" name="jag-ar" value="befintlig">
+            <label for="befintlig">Befintlig kund</label>
+
+            <fieldset>
+                <legend>Personlig info:</legend>
+                <input type="text" name="name" required placeholder="Namn">
+                <br><br>
+                <input type="email" name="email" placeholder="E-post">
+            </fieldset>
+
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Meddelande"></textarea>
+            <br><br>
+            <input type="submit" value="Skicka">
+        </form>
+    </div>
+
+    <a href="fil.html">Besök den nya sidan</a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkbox = document.getElementById("privacy-policy-checkbox");
+            const formSection = document.getElementById("form-section");
+
+            checkbox.addEventListener("change", function () {
+                if (checkbox.checked) {
+                    // Användaren har godkänt integritetspolicyn, visa formuläret.
+                    formSection.style.display = "block";
+                } else {
+                    // Användaren har inte godkänt integritetspolicyn, dölj formuläret.
+                    formSection.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
